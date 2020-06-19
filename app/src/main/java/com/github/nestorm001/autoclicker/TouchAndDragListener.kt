@@ -15,6 +15,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.AnticipateInterpolator
 import android.view.animation.OvershootInterpolator
+import com.github.nestorm001.autoclicker.service.FloatingClickService
 import com.github.nestorm001.autoclicker.service.StopServiceListener
 
 
@@ -78,16 +79,18 @@ class TouchAndDragListener(private val params: WindowManager.LayoutParams,
 
 
             MotionEvent.ACTION_MOVE -> {
-                if (!isDrag && isDragging(event)) {
-                    isDrag = true
-                    binView.visibility = View.VISIBLE
-                    binView.animate().scaleX(1f).scaleY(1f).setDuration(400).setInterpolator(LinearOutSlowInInterpolator()).start()
-                }
-                if (!isDrag) return true
-                params.x = initialX + (event.rawX - initialTouchX).toInt()
-                params.y = initialY + (event.rawY - initialTouchY).toInt()
+              if(!(stopServiceListener as FloatingClickService).isOn){
+                  if (!isDrag && isDragging(event)) {
+                      isDrag = true
+                      binView.visibility = View.VISIBLE
+                      binView.animate().scaleX(1f).scaleY(1f).setDuration(400).setInterpolator(LinearOutSlowInInterpolator()).start()
+                  }
+                  if (!isDrag) return true
+                  params.x = initialX + (event.rawX - initialTouchX).toInt()
+                  params.y = initialY + (event.rawY - initialTouchY).toInt()
 
-                onDrag?.invoke()
+                  onDrag?.invoke()
+              }
                 return true
             }
 

@@ -97,7 +97,7 @@ class FloatingClickService : Service(),StopServiceListener{
     }
 
 
-    private var isOn = false
+    var isOn = false
 
     private fun viewOnClick() {
         if (isOn) {
