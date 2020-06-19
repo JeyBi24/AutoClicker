@@ -76,6 +76,7 @@ class TouchAndDragListener(private val params: WindowManager.LayoutParams,
                 return true
             }
 
+
             MotionEvent.ACTION_MOVE -> {
                 if (!isDrag && isDragging(event)) {
                     isDrag = true
