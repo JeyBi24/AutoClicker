@@ -4,13 +4,13 @@
     >
 
     <gradient
-        android:startColor="#FF7854"
-        android:endColor="#FD267D"
+        android:startColor="#7AFF7854"
+        android:endColor="#80FD267D"
         android:angle="90"
         />
     <stroke
         android:width="2dp"
-        android:color="#FD267D"
+        android:color="#80FD267D"
         />
 
 

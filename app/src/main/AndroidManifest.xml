@@ -3,6 +3,11 @@
           package="com.github.nestorm001.autoclicker">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS"
+        android:protectionLevel="signature|installer" />
+
 
     <application
         android:allowBackup="true"
@@ -32,7 +37,9 @@
 
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/config"/>
+
+                android:resource="@xml/config"
+                />
         </service>
 
         <service

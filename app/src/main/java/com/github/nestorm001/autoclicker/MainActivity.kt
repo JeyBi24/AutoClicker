@@ -25,8 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         button.setOnClickListener {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
-                    || Settings.canDrawOverlays(this)) {
+            if (Settings.canDrawOverlays(this)) {
                 serviceIntent = Intent(this@MainActivity,
                         FloatingClickService::class.java)
                 startService(serviceIntent)
